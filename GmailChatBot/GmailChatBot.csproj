@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F31D4767-8B79-4B41-A3CF-061CE93FEE4D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GmailChatBot</RootNamespace>
+    <AssemblyName>GmailChatBot</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="agsXMPP, Version=1.1.1.0, Culture=neutral, PublicKeyToken=ff839b81f1debe86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\agsXMPP.dll</HintPath>
+    </Reference>
+    <Reference Include="AIMLbot, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\AIMLbot.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AIMLChatBot.cs" />
+    <Compile Include="Configuration\BotConfigSection.cs" />
+    <Compile Include="CommonManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AIML\config\DefaultPredicates.xml" />
+    <Content Include="AIML\config\GenderSubstitutions.xml" />
+    <Content Include="AIML\config\Person2Substitutions.xml" />
+    <Content Include="AIML\config\PersonSubstitutions.xml" />
+    <Content Include="AIML\config\Settings.xml" />
+    <Content Include="AIML\config\Splitters.xml" />
+    <Content Include="AIML\config\Substitutions.xml" />
+    <Content Include="lib\agsXMPP.dll" />
+    <Content Include="lib\agsXMPP.xml" />
+    <Content Include="lib\AIMLbot.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AIML\aiml\AI.aiml" />
+    <None Include="AIML\aiml\Atomic.aiml" />
+    <None Include="AIML\aiml\Biography.aiml" />
+    <None Include="AIML\aiml\Bot.aiml" />
+    <None Include="AIML\aiml\Botmaster.aiml" />
+    <None Include="AIML\aiml\Client.aiml" />
+    <None Include="AIML\aiml\Computers.aiml" />
+    <None Include="AIML\aiml\CustomTagTest.aiml" />
+    <None Include="AIML\aiml\Default.aiml" />
+    <None Include="AIML\aiml\Emotion.aiml" />
+    <None Include="AIML\aiml\Food.aiml" />
+    <None Include="AIML\aiml\Geography.aiml" />
+    <None Include="AIML\aiml\History.aiml" />
+    <None Include="AIML\aiml\Inquiry.aiml" />
+    <None Include="AIML\aiml\Interjection.aiml" />
+    <None Include="AIML\aiml\IU.aiml" />
+    <None Include="AIML\aiml\Knowledge.aiml" />
+    <None Include="AIML\aiml\Literature.aiml" />
+    <None Include="AIML\aiml\Money.aiml" />
+    <None Include="AIML\aiml\Movies.aiml" />
+    <None Include="AIML\aiml\Music.aiml" />
+    <None Include="AIML\aiml\Personality.aiml" />
+    <None Include="AIML\aiml\Philosophy.aiml" />
+    <None Include="AIML\aiml\Pickup.aiml" />
+    <None Include="AIML\aiml\Predicates.aiml" />
+    <None Include="AIML\aiml\Reduce.aiml" />
+    <None Include="AIML\aiml\Reductions.aiml" />
+    <None Include="AIML\aiml\Salutations.aiml" />
+    <None Include="AIML\aiml\Science.aiml" />
+    <None Include="AIML\aiml\Stack.aiml" />
+    <None Include="AIML\aiml\Stories.aiml" />
+    <None Include="AIML\aiml\That.aiml" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /I /Y "$(ProjectDir)AIML\aiml" "$(TargetDir)\aiml"
+xcopy /I /Y "$(ProjectDir)AIML\config" "$(TargetDir)\config"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
