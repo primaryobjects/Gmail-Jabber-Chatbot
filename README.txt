@@ -1,4 +1,9 @@
-Copyright © 2011 Kory Becker (http://www.primaryobjects.com)
+Gmail Jabber Chatbot
+http://primaryobjects.com/CMS/Article130.aspx
+
+A simple chatbot that talks over Gmail Chat, using the Jabber protocol and AIML personality. Created with C# .NET.
+
+Copyright © 2013 Kory Becker (http://www.primaryobjects.com)
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
